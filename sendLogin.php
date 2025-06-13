@@ -9,7 +9,7 @@ function validate($data){
     return $data;
 }
 var_dump($_POST);
-
+//comentario para aprender a usar github lol
 if (isset($_POST['CORREO']) && isset($_POST['CONTRASENA'])) {
     $correo = validate($_POST['CORREO']);
     $contrasena = validate($_POST['CONTRASENA']);
