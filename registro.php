@@ -1,42 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    
-    <meta charset="UTF-8"><!--es para poner comas y comillas-->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca CETI</title>
-    <link rel="preload" href="css/styles.css" as="styles"><!--Este es para poder cargar mas rapido la pagina y para forzar a cargar las paginad de styles-->
-    <link href="css/styles.css" rel="stylesheet"><!--Con este estamos llamando a la carpeta de styles de css-->
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <h2 class="logo">Biblioteca CETI</h2>
-        <nav class="buttons-barra"><!--Esta es la barra de navegacion-->
+        <nav class="buttons-barra">
             <a href="index.html">Inicio</a>
             <a href="libros.html">Libros</a>
             <a href="login.html">Login in</a>
-            <a href="registro.html">Registrar</a>
+            <a href="registro.php">Registrar</a>
             <a href="usuario.html">Usuario</a>
         </nav>
     </header>
 
     <section class="from-register">
-        <h2>Creade your Account</h2>
-        <input class="controls-register" type="text" name="nombres" placeholder="Ingrese su nombres">
-        <input class="controls-register"class="controls" type="text" name="apellios" placeholder="Ingresa tus apellidos">
-        <input class="controls-register"class="controls" type="number" name="registro"  placeholder="Ingresa tu resgistro">
-        <input class="controls-register"class="controls" type="email" name="correo" id="correo" placeholder="ingresa tu correo">
-        <input class="controls-register"class="controls" type="password" name="Contraseña" placeholder="Ingresa tu Contraseña">
-        <input class="buttons" type="submit" name="resgistrar" value="Registrar">
-        <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
-        <p><a href="login.html">Ya tienes cuenta?</a></p>
+        <h2>Crea tu Cuenta</h2>
+        <form method="POST" action="sendRegistro.php">
+            <input class="controls-register" type="text" name="NOMBRE" placeholder="Ingrese su nombre" required>
+            <input class="controls-register" type="email" name="CORREO" id="correo" placeholder="Ingrese su correo" required>
+            <input class="controls-register" type="password" name="CONTRASENA" placeholder="Ingresa tu Contraseña" required>
+            <label for="fechaNacimiento">Fecha de nacimiento:</label>
+            <input class="controls-register" type="date" id="fechaNacimiento" name="FECHA_NAC" required>
+            <input class="controls-register" type="text" name="TELEFONO" placeholder="Ingrese su telefono" required>
+            <input class="buttons" type="submit" name="registrar" value="Registrar">
+        </form>
+        <p>Estoy de acuerdo con <a href="#">Términos y condiciones</a></p>
+        <p><a href="login.html">¿Ya tienes cuenta?</a></p>
     </section>
 
-     <footer class="footer">
+    <footer class="footer">
         <div class="container">
             <div class="footer-row">
                 <div class="footer-links">
-
                     <h4>CETI Academy Library</h4>
                     <ul>
                         <li><a href="#">Empowering minds through</a></li>
@@ -45,9 +46,7 @@
                         <li><a href="#">home</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-links">
-
                     <h4>Hours</h4>
                     <ul>
                         <li><a href="#">home</a></li>
@@ -56,9 +55,7 @@
                         <li><a href="#">Register</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-links">
-
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="#">123 Academic Ave, Campus</a></li>
@@ -66,9 +63,7 @@
                         <li><a href="#">Phone: (123) 456-7890</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-links">
-
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#">Monday-Friday: 8am - 8pm</a></li>
@@ -76,12 +71,10 @@
                         <li><a href="#">Sunday: Closed</a></li>
                     </ul>
                 </div>
-                
             </div>
         </div>
-
         <div class="footer-end">
-        <p>© 2025 CETI Academy Library. All rights reserved.</p>
+            <p>© 2025 CETI Academy Library. All rights reserved.</p>
         </div>
     </footer>
 </body>
