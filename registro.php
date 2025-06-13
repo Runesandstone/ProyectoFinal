@@ -1,4 +1,5 @@
 
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,16 +9,22 @@
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <h2 class="logo">Biblioteca CETI</h2>
-        <nav class="buttons-barra">
-            <a href="index.html">Inicio</a>
-            <a href="libros.html">Libros</a>
-            <a href="login.html">Login in</a>
+<header class="header">
+    <h2 class="logo">Biblioteca CETI</h2>
+    <nav class="buttons-barra">
+        <a href="index.php">Inicio</a>
+        <a href="libros.html">Libros</a>
+
+        <?php if (isset($_SESSION['CORREO'])): ?>
+            <a href="logout.php">Cerrar sesión</a>
+            <a href="usuario.php"><?php echo htmlspecialchars($_SESSION['NOMBRE']); ?></a>
+        <?php else: ?>
+            <a href="login.php">Login</a>
             <a href="registro.php">Registrar</a>
-            <a href="usuario.html">Usuario</a>
-        </nav>
-    </header>
+        <?php endif; ?>
+    </nav>
+</header>
+
 
     <section class="from-register">
         <h2>Crea tu Cuenta</h2>
@@ -31,7 +38,7 @@
             <input class="buttons" type="submit" name="registrar" value="Registrar">
         </form>
         <p>Estoy de acuerdo con <a href="#">Términos y condiciones</a></p>
-        <p><a href="login.html">¿Ya tienes cuenta?</a></p>
+        <p><a href="login.php">¿Ya tienes cuenta?</a></p>
     </section>
 
     <footer class="footer">

@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca CETI</title>
-    <link rel="preload" href="css/styles.css" as="styles">
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <h2 class="logo">Biblioteca CETI</h2>
-        <nav class="buttons-barra"><!--Esta es la barra de navegacion-->
-            <a href="index.html">Inicio</a>
-            <a href="libros.html">Libros</a>
-            <a href="login.html">Login in</a>
+<?php session_start(); ?>
+<header class="header">
+    <h2 class="logo">Biblioteca CETI</h2>
+    <nav class="buttons-barra">
+        <a href="index.php">Inicio</a>
+        <a href="libros.html">Libros</a>
+
+        <?php if (isset($_SESSION['CORREO'])): ?>
+            <a href="logout.php">Cerrar sesión</a>
+            <a href="usuario.php"><?php echo htmlspecialchars($_SESSION['NOMBRE']); ?></a>
+        <?php else: ?>
+            <a href="login.php">Login</a>
             <a href="registro.php">Registrar</a>
-            <a href="usuario.html">Usuario</a>
-        </nav>
-    </header>
+        <?php endif; ?>
+    </nav>
+</header>
+
 
     <section class="from-login">
         <h2>Formulario Login</h2>
-        <input class="controls" type="text" name="usuario" placeholder="Usuario">
-        <input class="controls" type="password" name="Contraseña" value="" placeholder="Contraseña">
-        <input class="buttons" type="submit" name="" value="Ingresar">
+        <?php if (isset($_GET['error'])): ?>
+            <p style="color:red;"><?php echo htmlspecialchars($_GET['error']); ?></p>
+        <?php endif; ?>
+        <form method="POST" action="sendLogin.php">
+            <input class="controls" type="email" name="CORREO" placeholder="Ingrese su correo" required>
+            <input class="controls" type="password" name="CONTRASENA" placeholder="Ingresa tu Contraseña" required>
+            <input class="buttons" type="submit" name="login" value="Iniciar Sesión">
+        </form>
         <p><a href="#">Olvidaste la Contraseña </a></p>
 
     </section>

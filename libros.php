@@ -1,3 +1,5 @@
+
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,14 +13,20 @@
 <body>
     <header class="header">
         <h2 class="logo">Biblioteca CETI</h2>
-        <nav class="buttons-barra"><!--Esta es la barra de navegacion-->
-            <a href="index.html">Inicio</a>
+        <nav class="buttons-barra">
+            <a href="index.php">Inicio</a>
             <a href="libros.html">Libros</a>
-            <a href="login.html">Login in</a>
-            <a href="registro.php">Registrar</a>
-            <a href="usuario.html">Usuario</a>
+        
+            <?php if (isset($_SESSION['CORREO'])): ?>
+                <a href="logout.php">Cerrar sesión</a>
+                <a href="usuario.php"><?php echo htmlspecialchars($_SESSION['NOMBRE']); ?></a>
+            <?php else: ?>
+                <a href="login.php">Login</a>
+                <a href="registro.php">Registrar</a>
+            <?php endif; ?>
         </nav>
     </header>
+
     <section>
         <h2>Our Book Collection</h2>
         <p>Browse, search, and reserve books from our extensive library</p>

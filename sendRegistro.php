@@ -23,7 +23,8 @@ if (isset($_POST['registrar'])) {
         $edad = $hoy->diff($nacimiento)->y;
 
 
-        $consulta = "INSERT INTO usuario (NOMBRE, CORREO, CONTRASENA, EDAD, FECHA_NAC, TELEFONO, TIPO_USUARIO) VALUES ('$nombre', '$correo', '$contrasena','$edad', '$fecha_nac', '$telefono', 'normal')";
+        $consulta = "INSERT INTO usuario (NOMBRE, CORREO, CONTRASENA, EDAD, FECHA_NAC, TELEFONO, TIPO_USUARIO) 
+        VALUES ('$nombre', '$correo', '$contrasena','$edad', '$fecha_nac', '$telefono', 'normal')";
         $resultado = mysqli_query($conexion, $consulta); //linea
 
         if ($resultado) {
