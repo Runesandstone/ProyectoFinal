@@ -2,11 +2,10 @@
 include 'conexion.php';
 
 header('Content-Type: application/json');
-
-$sql = "
-SELECT TITULO, AUTOR, AÑO, EDITORIAL, COUNT(*) AS cantidad
+$sql = " 
+SELECT TITULO, AUTOR, AÑO, EDITORIAL, ID_CATEGORIA, COUNT(*) AS cantidad 
 FROM libro
-GROUP BY TITULO, AUTOR, AÑO, EDITORIAL
+GROUP BY TITULO, AUTOR, AÑO, EDITORIAL, ID_CATEGORIA
 ";
 $result = mysqli_query($conexion, $sql);
 

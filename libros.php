@@ -26,6 +26,18 @@
         </nav>
     </header>
 
+<!-- a partir de ahora sera el filtro de libros -->
+<input type="text" id="searchInput" placeholder="Buscar por título...">
+<select id="categoryFilter">
+  <option value="">Todas las categorías</option>
+  <option value="QC">Física</option>
+  <option value="PQ">Literaturas románticas</option>
+  <option value="QH">Historial natural</option>
+  <option value="GV">Ocio. Deportes.</option>
+  <option value="T">Tecnología</option>
+</select>
+
+
     <section>
         <h2>Our Book Collection</h2>
         <p>Browse, search, and reserve books from our extensive library</p>
