@@ -35,6 +35,15 @@
   <option value="QH">Historial natural</option>
   <option value="GV">Ocio. Deportes.</option>
   <option value="T">Tecnología</option>
+  <option value="QP" >Fisiología</option>
+  <option value="TP">Ingeniería Química</option>
+  <option value="TK">Ingeniería Electrónica</option>
+  <option value="TA">Ingeniería Civil</option>
+  <option value="HF">Comercio y Finanzas</option>
+  <option value="QA">Ciencias de la Computación</option>
+  <option value="TL">Ingeniería Automotriz</option>
+  <option value="LC">Educacion</option>
+  <option value="QD">Química</option>
 </select>
 
 
