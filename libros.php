@@ -1,4 +1,3 @@
-
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,7 +14,7 @@
         <h2 class="logo">Biblioteca CETI</h2>
         <nav class="buttons-barra">
             <a href="index.php">Inicio</a>
-            <a href="libros.html">Libros</a>
+            <a href="libros.php">Libros</a>
         
             <?php if (isset($_SESSION['CORREO'])): ?>
                 <a href="logout.php">Cerrar sesión</a>
@@ -30,6 +29,15 @@
     <section>
         <h2>Our Book Collection</h2>
         <p>Browse, search, and reserve books from our extensive library</p>
+        <div class="booksContainer">
+            <div class="book-card">
+                <h3>Título del Libro</h3>
+                <p><strong>Autor:</strong> Nombre del Autor</p>
+                <p><strong>Año:</strong> 2024</p>
+                <p><strong>Editorial:</strong> Editorial X</p>
+                <p><strong>Ejemplares disponibles:</strong> 3</p>
+            </div>
+        </div>
         <img src="img/fondo.jpeg" alt="fondo">
     </section>
 
@@ -89,5 +97,6 @@
         <p>© 2025 CETI Academy Library. All rights reserved.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
