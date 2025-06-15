@@ -13,16 +13,17 @@ body{
 /*Barra de navegacion*/
 
 .header{
-    background-color: rgba(22, 137, 6, 0.777);
+    background-color: #3a6351;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 85px;
     padding: 5px 10px;
-    
 }
 
 .logo {
+    display: block;
+    margin-left: 6%;
     cursor: pointer;
     font-size: 35px;
     color: #fff;
@@ -33,14 +34,21 @@ body{
     padding: 0 20px;
 }
 
-.buttons-barra a{
-    font-size: 700;
+.buttons-barra a { 
+    font-size: 18px; 
+    font-weight: 700; 
     color: #fff;
     text-decoration: none;
+    /* Add a little padding to make the clickable area larger */
+    padding: 5px 10px;
+    /* Add a transition for a smoother hover effect */
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.buttons-barra:hover{
+.buttons-barra a:hover {
     transform: scale(1.1);
+    color: #f2e8cf;
+    border-bottom: 4px solid #f2e8cf;
 }
 
 
@@ -140,28 +148,40 @@ body{
 
 /*Footer*/
 
-.footer{
+.footer {
     list-style: none;
-    padding: 80px 0;
-    background-color: #0b7f22;
+    padding: 10px 0;
+    background-color: #292929;
+    box-shadow:
+        0 -10px 20px rgba(0, 0, 0, 0.19), /* Larger, more diffused shadow for depth */
+        0 -5px 6px rgba(0, 0, 0, 0.73);   /* Smaller, sharper shadow closer to the element */
+    
 }
 
-.footer-row{
+.footer-row {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
+    flex-shrink: 1;
+    /* Added to center content when wrapped on smaller screens if there's an odd number of items */
 }
 
-.container{
-    max-width: 1200px;
-    padding: 80px 0;
+.footer-container {
+    /* Removed fixed height; let content dictate height for responsiveness */
+    padding: 13px 0;
+    /* Max width to keep content from getting too wide on very large screens */
+    max-width: 1200px; /* Example max width */
+    margin: 0 auto; /* Center the container */
 }
 
-.footer-links{
-    width: 25%;
+.footer-links {
+    width: 25%; /* Default for larger screens */
     padding: 0 15px;
+    margin-bottom: 20px; /* Add some vertical space between wrapped items */
+    box-sizing: border-box; /* Ensures padding is included in the width */
 }
 
-.footer-links h4{
+.footer-links h4 {
     font-size: 20px;
     color: #fff;
     margin-bottom: 25px;
@@ -175,18 +195,76 @@ body{
 .footer-links ul li a {
     font-size: 18px;
     text-decoration: none;
-    color: #e5f2d2;
+    color: #9198ff;
     display: block;
     margin-bottom: 15px;
     transition: all .3s ease;
 }
 
-.footer-end{
+.footer-end {
     color: #fff;
-    border-bottom: 2px solid;
+    /* Consider a background color for the copyright section if it's separate */
+    background-color: #1a1a1a;
+    padding: 10px 0; /* Add padding for better appearance */
+    text-align: center; /* Center the copyright text */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* A subtle top border */
 }
 
-.footer-links ul li a:hover{
-    color: #a6df14;
+.footer-links ul li a:hover {
+    color: #a3e8ff;
     padding-left: 6px;
+}
+
+.footer-list-item p {
+    font-size: 18px;
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 15px;
+    transition: all .3s ease; 
+    white-space: pre-wrap;
+}
+
+/* ------------------- Media Queries for Responsiveness ------------------- */
+
+/* Tablet and Smaller Desktops (e.g., 768px to 991px) */
+@media (max-width: 991px) {
+    .footer-links {
+        width: 50%; /* Two columns per row */
+    }
+}
+
+/* Mobile Devices (e.g., up to 767px) */
+@media (max-width: 767px) {
+    .footer-links {
+        width: 100%; /* Single column per row */
+        text-align: center; /* Center content for single column */
+        padding: 0 10px; /* Adjust padding as needed */
+    }
+
+    .footer-links h4 {
+        /* Center the border-bottom for centered text */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-links ul {
+        padding-left: 0; /* Remove default ul padding for centering list items */
+    }
+
+    .footer-links ul li {
+        text-align: center; /* Center list items */
+    }
+}
+
+/* If you need even narrower adjustments for very small phones */
+@media (max-width: 480px) {
+    .footer-links h4 {
+        font-size: 18px; /* Slightly smaller font for headings */
+    }
+    .footer-links ul li a,
+    .footer-list-item p {
+        font-size: 16px; /* Slightly smaller font for links/text */
+    }
 }

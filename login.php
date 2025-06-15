@@ -12,7 +12,7 @@
     <h2 class="logo">Biblioteca CETI</h2>
     <nav class="buttons-barra">
         <a href="index.php">Inicio</a>
-        <a href="libros.html">Libros</a>
+        <a href="libros.php">Libros</a>
 
         <?php if (isset($_SESSION['CORREO'])): ?>
             <a href="logout.php">Cerrar sesión</a>
