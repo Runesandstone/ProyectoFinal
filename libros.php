@@ -1,4 +1,3 @@
-
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,9 +26,39 @@
         </nav>
     </header>
 
+<!-- a partir de ahora sera el filtro de libros -->
+<input type="text" id="searchInput" placeholder="Buscar por título...">
+<select id="categoryFilter">
+  <option value="">Todas las categorías</option>
+  <option value="QC">Física</option>
+  <option value="PQ">Literaturas románticas</option>
+  <option value="QH">Historial natural</option>
+  <option value="GV">Ocio. Deportes.</option>
+  <option value="T">Tecnología</option>
+  <option value="QP" >Fisiología</option>
+  <option value="TP">Ingeniería Química</option>
+  <option value="TK">Ingeniería Electrónica</option>
+  <option value="TA">Ingeniería Civil</option>
+  <option value="HF">Comercio y Finanzas</option>
+  <option value="QA">Ciencias de la Computación</option>
+  <option value="TL">Ingeniería Automotriz</option>
+  <option value="LC">Educacion</option>
+  <option value="QD">Química</option>
+</select>
+
+
     <section>
         <h2>Our Book Collection</h2>
         <p>Browse, search, and reserve books from our extensive library</p>
+        <div class="booksContainer">
+            <div class="book-card">
+                <h3>Título del Libro</h3>
+                <p><strong>Autor:</strong> Nombre del Autor</p>
+                <p><strong>Año:</strong> 2024</p>
+                <p><strong>Editorial:</strong> Editorial X</p>
+                <p><strong>Ejemplares disponibles:</strong> 3</p>
+            </div>
+        </div>
         <img src="img/fondo.jpeg" alt="fondo">
     </section>
 
@@ -89,5 +118,6 @@
         <p>© 2025 CETI Academy Library. All rights reserved.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

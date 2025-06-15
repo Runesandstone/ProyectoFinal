@@ -51,6 +51,41 @@ body{
     border-bottom: 4px solid #f2e8cf;
 }
 
+.booksContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.book-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 20px 24px;
+  width: 260px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+}
+
+.book-card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.2em;
+  color: #2a4d69;
+}
+
+.book-card p {
+  margin: 6px 0;
+  color: #444;
+  font-size: 1em;
+}
 
 
 
