@@ -6,27 +6,28 @@
     <meta charset="UTF-8"><!--es para poner comas y comillas-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca CETI</title>
-    <link rel="preload" href="css/styles.css" as="styles"><!--Este es para poder cargar mas rapido la pagina y para forzar a cargar las paginad de styles-->
     <link href="css/styles.css" rel="stylesheet"><!--Con este estamos llamando a la carpeta de styles de css-->
+    <script type="module" src="scripts/footer.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
 <body>
-<header class="header">
-    <h2 class="logo">Biblioteca CETI</h2>
-    <nav class="buttons-barra">
-        <a href="index.php">Inicio</a>
-        <a href="libros.php">Libros</a>
+    <header class="header">
+        <h2 class="logo">Biblioteca CETI</h2>
+        <nav class="buttons-barra">
+            <a href="index.php" class = "menu-button">Inicio</a>
+            <a href="libros.php" class = "menu-button">Libros</a>
 
-        <?php if (isset($_SESSION['CORREO'])): ?>
-            <a href="logout.php">Cerrar sesión</a>
-            <a href="usuario.php"><?php echo htmlspecialchars($_SESSION['NOMBRE']); ?></a>
-        <?php else: ?>
-            <a href="login.php">Login</a>
-            <a href="registro.php">Registrar</a>
-        <?php endif; ?>
-    </nav>
-</header>
+            <?php if (isset($_SESSION['CORREO'])): ?>
+                <a href="logout.php" class = "menu-button">Cerrar sesión</a>
+                <a href="usuario.php" class = "menu-button"><?php echo htmlspecialchars($_SESSION['NOMBRE']); ?></a>
+            <?php else: ?>
+                <a href="login.php" class = "menu-button">Login</a>
+                <a href="registro.php" class = "menu-button">Registrar</a>
+            <?php endif; ?>
+        </nav>
+    </header>
+
 
    <section>
     <h1>Welcome to CETI Academy library</h1>
@@ -37,7 +38,7 @@
     <a href="login.php">
         <button>Unirse ahora</button>
         </a>
-   </section>
+    </section>
         <section>
             <section>
                         <!--
@@ -133,50 +134,8 @@
 
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-row">
-                <div class="footer-links">
-
-                    <h4>CETI Academy Library</h4>
-                    <ul>
-                        <li><a href="#">Empowering minds through</a></li>
-                        <li><a href="#">knowledge and resources.</a></li>
-                        <li><a href="#">home</a></li>
-                        <li><a href="#">home</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-
-                    <h4>Hours</h4>
-                    <ul>
-                        <li><a href="#">home</a></li>
-                        <li><a href="#">Books</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Register</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="#">123 Academic Ave, Campus</a></li>
-                        <li><a href="#">Email: library@ceti.edu</a></li>
-                        <li><a href="#">Phone: (123) 456-7890</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">Monday-Friday: 8am - 8pm</a></li>
-                        <li><a href="#">Saturday: 10am - 6pm</a></li>
-                        <li><a href="#">Sunday: Closed</a></li>
-                    </ul>
-                </div>
-                
+        <div class="footer-container">
+            <div class="footer-row" id = "footer-row">
             </div>
         </div>
 
