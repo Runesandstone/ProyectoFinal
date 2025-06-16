@@ -8,8 +8,10 @@ function validate($data){
     $data = htmlspecialchars($data);
     return $data;
 }
-var_dump($_POST);
+
+//var_dump($_POST); // Comenta o elimina esto en producción
 //comentario para aprender a usar github lol
+
 if (isset($_POST['CORREO']) && isset($_POST['CONTRASENA'])) {
     $correo = validate($_POST['CORREO']);
     $contrasena = validate($_POST['CONTRASENA']);
@@ -21,13 +23,20 @@ if (isset($_POST['CORREO']) && isset($_POST['CONTRASENA'])) {
         header("Location: login.php?error=La contraseña es obligatoria");
         exit();
     } else {
-        $consulta = "SELECT * FROM usuario WHERE CORREO='$correo' AND CONTRASENA='$contrasena'";
+        // En un entorno real, aquí deberías hashear la contraseña antes de compararla con la base de datos
+        // $hashed_contrasena = password_hash($contrasena, PASSWORD_DEFAULT); o similar
+
+        // Asegúrate de que 'BuscarLoginUsuario' devuelva también el campo ROL
+        $consulta = "CALL BuscarLoginUsuario('$correo', '$contrasena')";
         $resultado = mysqli_query($conexion, $consulta);
 
         if (mysqli_num_rows($resultado) === 1) {
             $row = mysqli_fetch_assoc($resultado);
             $_SESSION['CORREO'] = $row['CORREO'];
             $_SESSION['NOMBRE'] = $row['NOMBRE'];
+            // ¡Aquí es donde añades el rol a la sesión!
+            $_SESSION['ROL'] = $row['TIPO_USUARIO']; // Asume que el campo en la BD se llama 'ROL'
+
             header("Location: index.php");
             exit();
         } else {
@@ -35,8 +44,9 @@ if (isset($_POST['CORREO']) && isset($_POST['CONTRASENA'])) {
             exit();
         }
     }
-
 } else {
     header("Location: login.php?error=Credenciales incorrectas");
     exit();
 }
+?>
+
