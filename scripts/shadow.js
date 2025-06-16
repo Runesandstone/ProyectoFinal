@@ -1,10 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.getElementById('header');
     const targetSection = document.getElementById('hero-section'); // The section that triggers the shadow
-
+    
+    if (header && !targetSection) {
+        header.classList.add('header-blshadow');
+        console.warn("Target section not found. Header will have a static shadow.");
+    }
+    
+    
     if (!header || !targetSection) {
         console.warn("Header or target section not found. Dynamic shadow will not work.");
-        return; // Exit if elements aren't found
+        return;
     }
 
     // Function to check if the header is over the target section

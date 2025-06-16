@@ -2,13 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const booksContainer = document.querySelector('.booksContainer');
   const searchInput = document.getElementById('searchInput');
   const categoryFilter = document.getElementById('categoryFilter');
+  const searchButton = document.getElementById('searchButton');
   let allBooks = [];
+  let searchTerm = '';
 
   function addBookToContainer(book) {
     const bookCard = document.createElement('div');
     bookCard.className = 'book-card';
     bookCard.innerHTML = `
-      <h3>${book.TITULO}</h3>
+      <h3 class = "data-title">${book.TITULO}</h3>
       <p><strong>Autor:</strong> ${book.AUTOR}</p>
       <p><strong>Año:</strong> ${book.AÑO}</p>
       <p><strong>Editorial:</strong> ${book.EDITORIAL}</p>
@@ -27,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function filterBooks() {
-    const searchTerm = searchInput.value.toLowerCase(); 
     const category = categoryFilter.value;
     const filtered = allBooks.filter(book => {
       const matchesTitle = book.TITULO.toLowerCase().includes(searchTerm);
@@ -37,9 +38,15 @@ document.addEventListener('DOMContentLoaded', function () {
     renderBooks(filtered);
   }
 
-  fetch('get_books.php')
+  function writeVar() {
+    searchTerm = searchInput.value.toLowerCase();
+  }
+
+  // Cargar libros desde el servidor
+  fetch('./php/get_books.php')
     .then(response => response.json())
     .then(books => {
+      console.log('Libros: ', books);
       allBooks = books;
       renderBooks(allBooks);
     })
@@ -48,6 +55,10 @@ document.addEventListener('DOMContentLoaded', function () {
       booksContainer.innerHTML = '<p style="color:red;">No se pudieron cargar los libros.</p>';
     });
 
-  searchInput.addEventListener('input', filterBooks);
+  searchInput.addEventListener('input', writeVar());
+  searchButton.addEventListener('click', function () {
+    writeVar();
+    filterBooks();
+  });
   categoryFilter.addEventListener('change', filterBooks);
 });

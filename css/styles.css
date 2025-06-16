@@ -37,7 +37,11 @@ body{
 }
 
 .header.header-shadow {
-    box-shadow: 0 7px 15px rgba(4, 82, 17, 0.4); /* 50% opaque */
+    box-shadow: 0 7px 15px rgba(5, 98, 20, 0.4); /* 50% opaque */
+}
+
+.header.header-blshadow {
+    box-shadow: 0 7px 15px rgba(35, 121, 53, 0.522); /* 50% opaque */
 }
 
 .logo {

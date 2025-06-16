@@ -1,0 +1,99 @@
+:root {
+    --primary-dark: #2c4c3b;
+    --primary: #3a6351;
+    --primary-light: #5d8b75;
+    --secondary: #a1c084;
+    --accent: #f2e8cf;
+    --text-dark: #333;
+    --text-light: #f5f5f5;
+    --background: #f8f9fa;
+    --background-alt: #e9ecef;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --fs-xl: 3rem;
+    --fs-lg: 2.2rem;
+    --fs-md: 1.5rem;
+    --fs-sm: 1.1rem;
+    --fs-xs: 0.9rem;
+}
+
+.explau-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh; /* Full viewport height */
+    background-image: linear-gradient(rgba(44, 76, 59, 0.8), rgba(58, 99, 81, 0.8)), url('../img/fondoLib.jpg'); /* Background image */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the background image */
+    text-shadow: #00000099 2px 2px 4px; /* Subtle text shadow for better readability */
+    color: #fff; /* Default text color for the hero section */
+}
+
+.explau-section h1 {
+    display: block;
+    font-size: 3em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.explau-section p {
+    font-size: 1.5em;
+    margin: 0.5em 0; /* Adjusted margin for better spacing */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.search-section {
+    background-color: var(--background-alt);
+    padding: 2rem;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto 1rem;
+    display: flex;
+    background-color: var(--white);
+    border-radius: 4px;
+    box-shadow: 0 2px 10px var(--shadow);
+    overflow: hidden;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    font-size: var(--fs-sm);
+}
+
+.imglupa { /*Icon for search button */
+    width: 2.2rem;
+    height: 2rem;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+.filter-container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.filter-container select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: var(--white);
+    outline: none;
+    min-width: 150px;
+}

@@ -26,12 +26,12 @@ const footerData = [
             },
             {
                 type: "a",
-                href: "https://cetiacademy.com",
+                href: "https://www.ceti.mx",
                 content: "Sitio CETI web oficial"
             },
             {
                 type: "words",
-                content: `Email: library@ceti.edu<br>Telefono: (123) 456-7890`
+                content: `Email: ceticol@ceti.mx <br>Telefono: (33) 3641-3250`
             },
         ]
     },
