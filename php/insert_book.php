@@ -26,7 +26,7 @@ $autor = filter_var($data['autor'] ?? '', FILTER_SANITIZE_STRING);
 $anio = filter_var($data['anio'] ?? '', FILTER_VALIDATE_INT);
 $isbn = filter_var($data['isbn'] ?? '', FILTER_SANITIZE_STRING);
 $editorial = filter_var($data['editorial'] ?? '', FILTER_SANITIZE_STRING);
-$status = filter_var($data['status'] ?? '', FILTER_SANITIZE_STRING); // Should be 'Disponible' or 'Prestado'
+$status = filter_var($data['status'] ?? '', FILTER_SANITIZE_STRING); //  'Disponible' or 'Prestado'
 $id_categoria = filter_var($data['id_categoria'] ?? '', FILTER_SANITIZE_STRING);
 $descripcion = filter_var($data['descripcion'] ?? '', FILTER_SANITIZE_STRING);
 
