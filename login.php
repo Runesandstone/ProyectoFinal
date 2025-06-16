@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca CETI</title>
     <link href="css/styles.css" rel="stylesheet">
+    <script type="module" src="scripts/footer.js"></script>
 </head>
 <body>
 <?php session_start(); ?>
 <header class="header">
-    <h2 class="logo">Biblioteca CETI</h2>
+    <div class="logo-group">
+        <img src="img/logo.png" alt ="Logo CETI" class="logo-img">
+        <h2 class="logo">Biblioteca CETI</h2>
+    </div>
     <nav class="buttons-barra">
         <a href="index.php">Inicio</a>
         <a href="libros.php">Libros</a>
@@ -41,48 +45,7 @@
 
      <footer class="footer">
         <div class="container">
-            <div class="footer-row">
-                <div class="footer-links">
-
-                    <h4>CETI Academy Library</h4>
-                    <ul>
-                        <li><a href="#">Empowering minds through</a></li>
-                        <li><a href="#">knowledge and resources.</a></li>
-                        <li><a href="#">home</a></li>
-                        <li><a href="#">home</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-
-                    <h4>Hours</h4>
-                    <ul>
-                        <li><a href="#">home</a></li>
-                        <li><a href="#">Books</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Register</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="#">123 Academic Ave, Campus</a></li>
-                        <li><a href="#">Email: library@ceti.edu</a></li>
-                        <li><a href="#">Phone: (123) 456-7890</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">Monday-Friday: 8am - 8pm</a></li>
-                        <li><a href="#">Saturday: 10am - 6pm</a></li>
-                        <li><a href="#">Sunday: Closed</a></li>
-                    </ul>
-                </div>
+            <div class="footer-row" id = "footer-row">
                 
             </div>
         </div>

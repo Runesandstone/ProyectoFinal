@@ -7,6 +7,11 @@
 
 body{
     font-family: Arial;
+    padding-top: 85px; /* Add padding to avoid content being hidden behind the fixed header */
+    background-color: #f0f0f0; /* Light background for contrast */
+    color: #333; /* Default text color */
+    line-height: 1.6; /* Improved readability */
+    font-size: 16px; /* Base font size for better readability */
 }
 
 
@@ -19,19 +24,199 @@ body{
     align-items: center;
     height: 85px;
     padding: 5px 10px;
+
+    /* --- Key properties for fixed navigation --- */
+    position: fixed; /* Makes the element stay in place relative to the viewport */
+    top: 0;          /* Positions it at the very top of the viewport */
+    left: 0;         /* Aligns it to the left edge of the viewport */
+    width: 100%;     /* Makes it span the full width of the viewport */
+    z-index: 1000;   /* Ensures it stays on top of other content when scrolling */
+    /* --- Initial shadow (optional, can be controlled by JS later) --- */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Start with no shadow, or a very subtle one */
+    transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+}
+
+.header.header-shadow {
+    box-shadow: 0 7px 15px rgba(4, 82, 17, 0.4); /* 50% opaque */
 }
 
 .logo {
     display: block;
-    margin-left: 6%;
+    margin-left: 3%;
     cursor: pointer;
     font-size: 35px;
     color: #fff;
 }
 
+.logo-group {
+    display: flex; /* Make this a flex container to align the image and h2 */
+    align-items: center; /* Vertically center the image and text within the group */
+    gap: 15px; /* Adds space between the logo image and the h2 text */
+    margin-left: 2%; /* Adjust as needed, use percentage or vw for responsiveness */
+}
+
+
+
+/* -- Seccion de bienvenida -- */ 
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* Full viewport height */
+    background-image: linear-gradient(rgba(44, 76, 59, 0.8), rgba(58, 99, 81, 0.8)), url('../img/fondo.jpeg'); /* Background image */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the background image */
+    text-shadow: #00000099 2px 2px 4px; /* Subtle text shadow for better readability */
+    color: #fff; /* Default text color for the hero section */
+}
+
+.hero-section h1 {
+    display: block;
+    font-size: 3em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero-button {
+    background-color: #5cb85c; 
+    color: #fff;
+    padding: 12px 25px; 
+    border: none; 
+    border-radius: 8px;
+    cursor: pointer; 
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; 
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero-button.join-now {
+    background-color: #007bff; /* A nice blue for distinction */
+}
+
+
+.hero-button:hover {
+    background-color: #4cae4c; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.hero-button.join-now:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.hero-button:active {
+    transform: translateY(0); /* Button presses down */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow recedes */
+}
+
+.hero-buttons-container {
+    display: flex;
+    gap: 20px; /* Space between the buttons */
+    margin-top: 30px; /* Space from content above */
+    justify-content: center; /* Center buttons if they are in a wider container */
+}
+
+
+
+/* -- Informacion de la libreria -- */
+
+.library-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content; /* Full viewport height */
+    padding: 5%; /* Padding for content */
+    background-color: #e9ecef;
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the background image */
+    text-shadow: #0000003f 1px 1px 2px; /* Subtle text shadow for better readability */
+    color: #2c4c3b; /* Default text color for the hero section */
+}
+
+/* Contenedor de las características */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem; /* Espacio entre las tarjetas */
+    padding: 4rem 2rem; 
+    max-width: 1200px; /* Ancho máximo del contenedor de tarjetas */
+    margin: 0 auto; /* Centra el contenedor */
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total del elemento */
+}
+
+/* Estilo de la tarjeta individual */
+.feature-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2.5rem 1.5rem; /* Este padding se incluye en el ancho gracias a border-box */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido se apile verticalmente */
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+    border: 1px solid #f0f0f0;
+    box-sizing: border-box; /* <<<<<<<<<<<<<<<< ¡Añadir esto! */
+}
+
+/* Efecto Hover para la tarjeta */
+.feature-card:hover {
+    transform: translateY(-5px); /* Se levanta ligeramente */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al levantar */
+}
+
+
+
+/* -- SVG ICONOS -- */
+
+/* Estilo para los iconos SVG */
+.feature-card svg {
+    /* El color verde de tu imagen es #2b7337. Los iconos SVG usan 'stroke' para el color del trazo. */
+    stroke: #2b7337; /* Color del icono */
+    margin-bottom: 1.5rem; /* Espacio debajo del icono */
+    width: 60px; /* Ajusta el tamaño si 56px no es suficiente, o déjalo en 56 */
+    height: 60px;
+}
+
+/* Estilo para los títulos (h3) */
+.feature-card h3 {
+    font-size: 1.6rem; /* Un buen tamaño para el título */
+    color: #333; /* Un gris oscuro para el texto */
+    margin-bottom: 0.8rem; /* Espacio debajo del título */
+    font-weight: 700; /* Hace el título negrita, como en la imagen */
+    line-height: 1.2; /* Ajusta el interlineado del título */
+}
+
+/* Estilo para los párrafos (p) */
+.feature-card p {
+    font-size: 1rem; /* Tamaño de fuente para el texto del párrafo */
+    color: #666; /* Un gris medio para el texto del párrafo */
+    line-height: 1.6; /* Mejora la legibilidad del párrafo */
+    margin-bottom: 0; /* Asegura que no haya margin extra al final del párrafo */
+}
+
+
 .buttons-barra{
     display: inline-block;
     padding: 0 20px;
+}
+
+.logo-img {
+    width: 15%; /* Adjust the size of the logo image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 0px; /* Space between image and text */
 }
 
 .buttons-barra a { 
@@ -101,14 +286,15 @@ body{
     padding: 20px 30px;
     border-top: 4px solid #000;
     color: rgba(22, 137, 6, 0.777);
+    margin-bottom: 10%;
 }
 
 .from-login h2{
-    margin: 0;
+    margin: 20;
     text-align: center;
     height: 40px;
     margin-bottom: 20px;
-    border-bottom: 1px solid;
+    border-bottom: 3px solid;
     font-size-adjust: 20px;
 }   
 
@@ -122,7 +308,7 @@ body{
 
 .buttons{
     width: 100%;
-    height: 20px;
+    height: 30px;
     background-color: #fff;
     color: forestgreen;   
 }
@@ -130,7 +316,7 @@ body{
 .from-login p{
     height: 40px;
     text-align: center;
-    border-bottom: 1px solid;
+    border-bottom: 3px solid;
 }
 
 .from-login a{
@@ -142,7 +328,7 @@ body{
 
 .from-register{
     width: 400px;
-    height: 450px;
+    height: 480px;
     background-color: #fff;
     margin: auto;
     margin-top: 40px;
@@ -150,6 +336,7 @@ body{
     padding: 20px 30px;
     border-top: 4px solid #000;
     color: rgba(22, 137, 6, 0.777);
+    margin-bottom: 15%;
 }
 
 .from-register h2 {
