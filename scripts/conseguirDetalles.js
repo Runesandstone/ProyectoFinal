@@ -275,3 +275,42 @@ booksContainer.addEventListener('click', function(event) {
         }
     });
 });
+
+function fetchAndRenderBooks() {
+    fetch('./php/get_books.php')
+    .then(response => response.json())
+    .then(books => {
+      console.log('Libros: ', books);
+      let allBooks = books;
+      renderBooks(allBooks);
+    })
+    .catch(error => {
+      console.error('Error al cargar libros:', error);
+      const booksContainer = document.querySelector('.booksContainer');
+      booksContainer.innerHTML = '<p style="color:red;">No se pudieron cargar los libros.</p>';
+    });
+}
+
+function renderBooks(books) {
+    const booksContainer = document.querySelector('.booksContainer');
+    booksContainer.innerHTML = '';
+    if (books.length === 0) {
+      booksContainer.innerHTML = '<p>No se encontraron libros.</p>';
+      return;
+    }
+    books.forEach(addBookToContainer);
+}
+
+function addBookToContainer(book) {
+    const booksContainer = document.querySelector('.booksContainer');
+    const bookCard = document.createElement('div');
+    bookCard.className = 'book-card';
+    bookCard.innerHTML = `
+      <h3 class = "data-title">${book.TITULO}</h3>
+      <p><strong>Autor:</strong> ${book.AUTOR}</p>
+      <p><strong>Año:</strong> ${book.AÑO}</p>
+      <p><strong>Editorial:</strong> ${book.EDITORIAL}</p>
+      <p><strong>Ejemplares disponibles:</strong> ${book.cantidad}</p>
+    `;
+    booksContainer.appendChild(bookCard);
+  }
