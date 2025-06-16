@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Display a temporary message while clearing
                 logContentDiv.innerHTML = '<p class="no-log-message">Limpiando log de actividad...</p>';
 
-                fetch('php/clear_admin_log.php', { // Corrected PHP filename
+                fetch('php/clean_admin_log.php', { // Corrected PHP filename
                     method: 'POST', // Use POST for actions that modify data
                     headers: {
                         'Content-Type': 'application/json'
